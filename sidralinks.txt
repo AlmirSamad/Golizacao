@@ -1,0 +1,4 @@
+8880 : https://sidra.ibge.gov.br/geratabela?format=xlsx&name=tabela8880.xlsx&terr=N&rank=-&query=t/8880/n3/13/v/7169,7170/p/all/c11046/all/d/v7169%205,v7170%205/l/v,t%2Bc11046,p
+8881 : https://sidra.ibge.gov.br/geratabela?format=xlsx&name=tabela8881.xlsx&terr=N&rank=-&query=t/8881/n3/13/v/7169,7170/p/all/c11046/all/d/v7169%205,v7170%205/l/v,t%2Bc11046,p
+5906 : https://sidra.ibge.gov.br/geratabela?format=xlsx&name=tabela5906.xlsx&terr=N&rank=-&query=t/5906/n3/13/v/7167,7168/p/all/c11046/all/d/v7167%205,v7168%205/l/v,t%2Bc11046,p
+8888 : https://sidra.ibge.gov.br/geratabela?format=xlsx&name=tabela8888.xlsx&terr=N&rank=-&query=t/8888/n3/13/v/12606,12607/p/all/c544/all/d/v12606%205,v12607%205/l/v,c544,p%2Bt
