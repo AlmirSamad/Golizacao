@@ -15,11 +15,13 @@ type SidraRecord struct {
 	Link   string
 }
 
-func BaixarDadosSidra() {
+// 1. A função agora recebe os parâmetros dinâmicos definidos nas Flags do CLI
+func BaixarDadosSidra(caminhoArquivo string, tempoEspera int) {
 
-	arquivo, err := os.Open("sidralinks.txt")
+	// 2. Substituímos o nome fixo "sidralinks.txt" pela variável do caminho
+	arquivo, err := os.Open(caminhoArquivo)
 	if err != nil {
-		fmt.Printf("Erro ao abrir o arquivo: %v\n", err)
+		fmt.Printf("Erro ao abrir o arquivo '%s': %v\n", caminhoArquivo, err)
 		return
 	}
 	defer arquivo.Close()
@@ -54,18 +56,17 @@ func BaixarDadosSidra() {
 		return
 	}
 
-	fmt.Printf("Foram encontradas %d tabelas:\n\n", len(fontes))
+	fmt.Printf("Foram encontradas %d tabelas no arquivo '%s':\n\n", len(fontes), caminhoArquivo)
 
 	for i, fonte := range fontes {
-		// ---------------------------------------------------------
-		// A MELHORIA: O timer agora fica no TOPO do loop.
-		// "Se o índice for maior que 0 (ou seja, se NÃO for a primeira tabela), espere."
+
 		if i > 0 {
-			fmt.Println("Aguardando 60 segundos antes de tentar a próxima tabela...")
-			time.Sleep(60 * time.Second)
+			// 3. Substituímos o número fixo 60 pela variável tempoEspera
+			// ATENÇÃO: É obrigatório converter tempoEspera para time.Duration
+			fmt.Printf("Aguardando %d segundos antes de tentar a próxima tabela...\n", tempoEspera)
+			time.Sleep(time.Duration(tempoEspera) * time.Second)
 			fmt.Println()
 		}
-		// ---------------------------------------------------------
 
 		fmt.Printf("A variável Código é: %s\n", fonte.Codigo)
 		fmt.Printf("A variável Link é: %s\n", fonte.Link)
@@ -116,7 +117,5 @@ func BaixarDadosSidra() {
 
 		out.Close()
 		resp.Body.Close()
-
-		// (O timer do final foi removido daqui)
 	}
 }
